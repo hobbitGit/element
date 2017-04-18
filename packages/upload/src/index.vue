@@ -49,6 +49,10 @@ export default {
       default: 'select'
     },
     beforeUpload: Function,
+    onStart: {
+      type: Function,
+      default: noop
+    },
     onRemove: {
       type: Function,
       default: noop
@@ -129,7 +133,7 @@ export default {
         console.error(err);
         return;
       }
-
+      this.onStart(file, this.uploadFiles);
       this.uploadFiles.push(file);
     },
     handleProgress(ev, rawFile) {

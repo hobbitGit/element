@@ -1,19 +1,19 @@
-function getError(action, option, xhr) {
-  let msg;
-  if (xhr.response) {
-    msg = `${xhr.status} ${xhr.response.error || xhr.response}`;
-  } else if (xhr.responseText) {
-    msg = `${xhr.status} ${xhr.responseText}`;
-  } else {
-    msg = `fail to post ${action} ${xhr.status}'`;
-  }
+// function getError(action, option, xhr) {
+//   let msg;
+//   if (xhr.response) {
+//     msg = `${xhr.status} ${xhr.response.error || xhr.response}`;
+//   } else if (xhr.responseText) {
+//     msg = `${xhr.status} ${xhr.responseText}`;
+//   } else {
+//     msg = `fail to post ${action} ${xhr.status}'`;
+//   }
 
-  const err = new Error(msg);
-  err.status = xhr.status;
-  err.method = 'post';
-  err.url = action;
-  return err;
-}
+//   const err = new Error(msg);
+//   err.status = xhr.status;
+//   err.method = 'post';
+//   err.url = action;
+//   return err;
+// }
 
 function getBody(xhr) {
   const text = xhr.responseText || xhr.response;
@@ -61,7 +61,7 @@ export default function upload(option) {
 
   xhr.onload = function onload() {
     if (xhr.status < 200 || xhr.status >= 300) {
-      return option.onError(getError(action, option, xhr));
+      return option.onError(getBody(xhr));
     }
 
     option.onSuccess(getBody(xhr));
