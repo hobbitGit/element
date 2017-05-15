@@ -19,6 +19,10 @@ export default {
     IframeUpload
   },
 
+  provide: {
+    uploader: this
+  },
+
   props: {
     action: {
       type: String,
@@ -90,7 +94,8 @@ export default {
       type: String,
       default: 'text'   // text,picture,picture-card
     },
-    httpRequest: Function
+    httpRequest: Function,
+    disabled: Boolean
   },
 
   data() {
@@ -135,6 +140,7 @@ export default {
       }
       this.onStart(file, this.uploadFiles);
       this.uploadFiles.push(file);
+      this.onChange(file, this.uploadFiles);
     },
     handleProgress(ev, rawFile) {
       var file = this.getFile(rawFile);
@@ -168,6 +174,7 @@ export default {
       if (raw) {
         file = this.getFile(raw);
       }
+      this.abort(file);
       var fileList = this.uploadFiles;
       fileList.splice(fileList.indexOf(file), 1);
       this.onRemove(file, fileList);
@@ -180,6 +187,9 @@ export default {
         return !target;
       });
       return target;
+    },
+    abort(file) {
+      this.$refs['upload-inner'].abort(file);
     },
     clearFiles() {
       this.uploadFiles = [];
@@ -231,6 +241,7 @@ export default {
         fileList: this.uploadFiles,
         autoUpload: this.autoUpload,
         listType: this.listType,
+        disabled: this.disabled,
         'on-start': this.handleStart,
         'on-progress': this.handleProgress,
         'on-success': this.handleSuccess,

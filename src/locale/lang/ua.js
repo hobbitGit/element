@@ -62,6 +62,7 @@ export default {
     },
     cascader: {
       noMatch: 'Співпадінь не знайдено',
+      loading: 'Завантаження',
       placeholder: 'Обрати'
     },
     pagination: {
@@ -85,10 +86,19 @@ export default {
       emptyText: 'Нема даних',
       confirmFilter: 'Підтвердити',
       resetFilter: 'Скинути',
-      clearFilter: 'Все'
+      clearFilter: 'Все',
+      sumText: 'Sum' // to be translated
     },
     tree: {
       emptyText: 'Нема даних'
+    },
+    transfer: {
+      noMatch: 'Співпадінь не знайдено',
+      noData: 'Обрати',
+      titles: ['List 1', 'List 2'], // to be translated
+      filterPlaceholder: 'Enter keyword', // to be translated
+      noCheckedFormat: '{total} items', // to be translated
+      hasCheckedFormat: '{checked}/{total} checked' // to be translated
     }
   }
 };

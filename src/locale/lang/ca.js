@@ -62,6 +62,7 @@ export default {
     },
     cascader: {
       noMatch: 'No hi ha dades que coincideixin',
+      loading: 'Carregant',
       placeholder: 'Seleccionar'
     },
     pagination: {
@@ -84,10 +85,19 @@ export default {
       emptyText: 'Sense Dades',
       confirmFilter: 'Confirmar',
       resetFilter: 'Netejar',
-      clearFilter: 'Tot'
+      clearFilter: 'Tot',
+      sumText: 'Tot'
     },
     tree: {
       emptyText: 'Sense Dades'
+    },
+    transfer: {
+      noMatch: 'No hi ha dades que coincideixin',
+      noData: 'Sense Dades',
+      titles: ['Llista 1', 'Llista 2'],
+      filterPlaceholder: 'Introdueix la paraula clau',
+      noCheckedFormat: '{total} ítems',
+      hasCheckedFormat: '{checked}/{total} seleccionats'
     }
   }
 };

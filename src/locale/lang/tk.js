@@ -62,6 +62,7 @@ export default {
     },
     cascader: {
       noMatch: 'Hiçzat tapylmady',
+      loading: 'Indirilýär',
       placeholder: 'saýlaň'
     },
     pagination: {
@@ -85,10 +86,19 @@ export default {
       emptyText: 'Maglumat ýok',
       confirmFilter: 'Tassykla',
       resetFilter: 'Arassala',
-      clearFilter: 'Hemmesi'
+      clearFilter: 'Hemmesi',
+      sumText: 'Sum' // to be translated
     },
     tree: {
       emptyText: 'Maglumat ýok'
+    },
+    transfer: {
+      noMatch: 'Hiçzat tapylmady',
+      noData: 'Hiçzat ýok',
+      titles: ['List 1', 'List 2'], // to be translated
+      filterPlaceholder: 'Enter keyword', // to be translated
+      noCheckedFormat: '{total} items', // to be translated
+      hasCheckedFormat: '{checked}/{total} checked' // to be translated
     }
   }
 };
