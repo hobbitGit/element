@@ -308,7 +308,8 @@ export default class Node {
     }
 
     const handleDescendants = (lazy) => {
-      if (deep && !lazy) {
+      // modify by itc070024
+      if (deep && !lazy && !this.data.checkChildStrictly) {
         const childNodes = this.childNodes;
         for (let i = 0, j = childNodes.length; i < j; i++) {
           const child = childNodes[i];
@@ -323,8 +324,8 @@ export default class Node {
         }
       }
     };
-
-    if (!this.store.checkStrictly && this.shouldLoadData()) {
+    // modify by itc070024
+    if (!this.store.checkStrictly && !this.data.checkChildStrictly && this.shouldLoadData()) {
       // Only work on lazy load data.
       this.loadData(() => {
         handleDescendants(true);
@@ -338,7 +339,8 @@ export default class Node {
     const parent = this.parent;
     if (!parent || parent.level === 0) return;
 
-    if (!this.store.checkStrictly && !recursion) {
+    // modify by itc070024
+    if (!this.store.checkStrictly && !this.data.checkParentStrictly && !recursion) {
       reInitChecked(parent);
     }
   }
